@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="adr1" class="com.examples.springcore.Address">
+		<property name="dno" value="123" />
+		<property name="street" value="MG Road" />
+		<property name="city" value="Bangalore" />
+	</bean>
+
+	<bean id="address" class="com.examples.springcore.Address">
+		<!-- <property name="dno" value="302" /> <property name="street" value="Koramangala" 
+			/> <property name="city" value="Bangalore" /> -->
+
+		<constructor-arg value="999" />
+		<constructor-arg value="T Nagar" />
+		<constructor-arg value="Chennai" />
+
+	</bean>
+
+	<bean id="person" class="com.examples.springcore.Person"
+		autowire="byName">
+		<!-- <property name="id" value="222" /> <property name="name" value="kumar" 
+			/> <property name="address" ref="address" /> -->
+
+		<constructor-arg value="654" />
+		<constructor-arg value="Anil" />
+		<constructor-arg ref = "address" />
+	</bean>
+
+</beans>
