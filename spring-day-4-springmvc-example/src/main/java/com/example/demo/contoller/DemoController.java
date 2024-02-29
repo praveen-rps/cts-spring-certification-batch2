@@ -3,11 +3,14 @@ package com.example.demo.contoller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.example.demo.NoteService;
 import com.example.demo.Notes;
@@ -17,6 +20,13 @@ public class DemoController {
 	
 	@Autowired 
 	NoteService service;
+	
+	@GetMapping("/test")
+	@ResponseBody
+	@ResponseStatus(HttpStatus.CREATED)
+	public String test() {
+		return "test";
+	}
 	
 	@GetMapping("/home/{name}/{city}")
 //	public ModelAndView home() {
@@ -36,8 +46,8 @@ public class DemoController {
 	}
 	
 	@GetMapping("/registerData")
-	public String registerData(@RequestParam("pid")int pid,
-			@RequestParam("author")String author,
+	public String registerData(@RequestParam int pid,
+			@RequestParam String author,
 			@RequestParam("title")String title,
 			@RequestParam("description")String description, 
 			Model model) {
