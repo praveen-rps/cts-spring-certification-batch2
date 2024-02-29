@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">	
+	<body>
+		
+				
+		<h2 align="center" style="color:blue" >Notes Data</h2>
+		
+		<table border="1">
+			<tr  th:each="note : ${notes}" >
+				<td th:text="${note.pid}" />
+				<td th:text="${note.author}" />
+				<td th:text="${note.title}" />
+				<td th:text="${note.description}" />
+			</tr>
+			
+		</table>
+	
+	</body>
+</html>
